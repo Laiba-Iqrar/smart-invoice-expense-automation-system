@@ -1,0 +1,2 @@
+Computer, Dell, Intel,playstation ,Projector-> technologies
+Dress,Shoes,sleepwear-> fashion
