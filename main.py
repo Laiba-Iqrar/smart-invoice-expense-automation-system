@@ -5,6 +5,7 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from ocr_extraction import process_invoice
 from utils import save_db, load_db
+from pdf_extraction import process_pdf_invoice
 
 INCOMING_DIR = "invoices/incoming"
 PROCESSED_DIR = "invoices/processed"
@@ -20,7 +21,10 @@ os.makedirs(FAILED_DIR, exist_ok=True)
 class InvoiceHandler(FileSystemEventHandler):
     def handle_file(self, path):
         try:
-            invoice = process_invoice(path)
+            if path.lower().endswith(".pdf"):
+                invoice = process_pdf_invoice(path)
+            else:
+                invoice = process_invoice(path)
             if invoice:
                 db = load_db()
                 db["invoices"].append(invoice)
