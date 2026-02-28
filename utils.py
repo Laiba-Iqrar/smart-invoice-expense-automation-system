@@ -11,7 +11,7 @@ CATEGORY_RULES = {
     "technology": [
         "computer", "pc", "desktop", "laptop", "intel", "nvidia", "ssd", "ram",
         "monitor", "wii", "nintendo", "gameboy", "controller", "console",
-        "gaming", "keyboard", "mouse", "vr-ready", "graphics"
+        "gaming", "keyboard", "mouse", "vr-ready", "graphics", "printer"
     ],
     "fashion": [
         "shoes", "sneakers", "boots", "sandals", "heels", "flats",
