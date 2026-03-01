@@ -4,9 +4,7 @@ import pdfplumber
 from datetime import datetime
 from utils import get_file_hash, already_processed, categorize
 
-# =========================
 # TEXT EXTRACTION
-# =========================
 def extract_text_from_pdf(pdf_path):
     text = ""
     with pdfplumber.open(pdf_path) as pdf:
@@ -17,9 +15,7 @@ def extract_text_from_pdf(pdf_path):
     return text
 
 
-# =========================
 # DATE FORMATTER
-# =========================
 def format_date(date_str):
     for fmt in ("%b %d %Y", "%d %B %Y"):
         try:
@@ -29,19 +25,13 @@ def format_date(date_str):
     return "Unknown"
 
 
-# =========================
 # FORMAT 1 PARSER
-# =========================
 def parse_format_1(text):
 
-    # =========================
     # Invoice Number (# 17042)
-    # =========================
     invoice_no_match = re.search(r"#\s*(\d+)", text)
 
-    # =========================
     # Vendor Extraction
-    # =========================
     vendor = "Unknown"
     lines = text.split("\n")
 
@@ -62,25 +52,19 @@ def parse_format_1(text):
                     break
             break
 
-    # =========================
     # Date
-    # =========================
     date_match = re.search(
         r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+\d{4}",
         text
     )
 
-    # =========================
     # Total
-    # =========================
     total_match = re.search(
         r"Total:\s*\$?([\d,]+\.\d+)",
         text
     )
 
-    # =========================
     # Items
-    # =========================
     items = []
 
     item_block = re.search(
@@ -116,14 +100,10 @@ def parse_format_1(text):
     }
 
 
-# =========================
 # FORMAT 2 PARSER
-# =========================
 def parse_format_2(text):
 
-    # =========================
     # Extract Invoice No + Vendor (merged block case)
-    # =========================
     merged_match = re.search(
         r"Invoice No:\s*Verndor:\s*\n\s*(\d+)\s+([A-Za-z ]+)",
         text,
@@ -149,26 +129,20 @@ def parse_format_2(text):
         invoice_no = invoice_no_match.group(1) if invoice_no_match else "Unknown"
         vendor = vendor_match.group(1).strip() if vendor_match else "Unknown"
 
-    # =========================
     # Date
-    # =========================
     date_match = re.search(
         r"\d{2}\s+[A-Za-z]+\s+\d{4}",
         text
     )
 
-    # =========================
     # Total
-    # =========================
     total_match = re.search(
         r"GRAND TOTAL\s*\$?\s*([\d,]+)",
         text,
         re.IGNORECASE
     )
 
-    # =========================
     # Items
-    # =========================
     items = []
 
     item_pattern = re.findall(
@@ -191,9 +165,7 @@ def parse_format_2(text):
         "items": items
     }
 
-# =========================
 # MAIN PROCESS FUNCTION
-# =========================
 def process_pdf_invoice(file_path):
 
     text = extract_text_from_pdf(file_path)
@@ -209,7 +181,7 @@ def process_pdf_invoice(file_path):
         print("Duplicate invoice detected. Skipping.")
         return None
 
-    # 🔥 Stronger format detection
+    # Stronger format detection
     if "Invoice No:" in text and "Verndor:" in text:
         data = parse_format_2(text)
     elif "Bill To:" in text:
