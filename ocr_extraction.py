@@ -4,15 +4,12 @@ from PIL import Image
 import pytesseract
 from utils import get_file_hash, already_processed, categorize
 
-# =========================
 # OCR
-# =========================
 def extract_text(image_path):
     return pytesseract.image_to_string(Image.open(image_path))
 
-# =========================
+
 # FIELD EXTRACTION
-# =========================
 def extract_invoice_no(text):
     match = re.search(r"Invoice\s*no[:\-]?\s*(\d+)", text, re.IGNORECASE)
     return match.group(1) if match else "Unknown"
@@ -39,9 +36,7 @@ def extract_total(text):
         return float(inline_match.group(1).replace(",", "."))
     return 0.0
 
-# =========================
 # ITEM EXTRACTION
-# =========================
 def extract_items(text):
     items = []
     items_match = re.search(r"ITEMS(.*?)SUMMARY", text, re.DOTALL | re.IGNORECASE)
@@ -81,9 +76,7 @@ def extract_items(text):
 
     return items
 
-# =========================
 # PROCESS INVOICE
-# =========================
 def process_invoice(file_path):
     text = extract_text(file_path)
     print("\n" + "="*60)
