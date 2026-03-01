@@ -10,7 +10,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 CATEGORY_RULES = {
     "technology": [
         "smart phone", "phone", "voip", "signal booster",
-        "fax", "fax machine", "wireless fax","Dell","COMPUTER",
+        "fax", "fax machine", "wireless fax","Dell","COMPUTER","Windows",
         "copier", "copy machine", "personal copier","Controller",
         "printer", "receipt printer", "card printer",
         "inkjet", "laser", "digital", "computer table", "keyboard", "mouse",
@@ -31,7 +31,7 @@ CATEGORY_RULES = {
         
         "towel", "tissue","Wine",
         
-        "storage", "doors","Carpets"
+        "storage", "doors","Carpets","Carpet"
     ],
 
     "fashion": [
