@@ -10,13 +10,14 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 CATEGORY_RULES = {
     "technology": [
         "smart phone", "phone", "voip", "signal booster",
-        "fax", "fax machine", "wireless fax","Dell","COMPUTER","Windows",
-        "copier", "copy machine", "personal copier","Controller",
+        "fax", "fax machine", "wireless fax", "dell", "computer", "windows",
+        "copier", "copy machine", "personal copier", "controller",
         "printer", "receipt printer", "card printer",
         "inkjet", "laser", "digital", "computer table", "keyboard", "mouse",
-        "epson", "canon", "brother", "hewlett", "hp","Projector",
+        "epson", "canon", "brother", "hewlett", "hp", "projector",
         "motorola", "nokia", "samsung", "cisco",
-        "startech", "konica", "panasonic","PlayStation","Xbox","Console","Games","Apple","Ink"
+        "startech", "konica", "panasonic", "playstation", "xbox",
+        "console", "games", "apple", "ink"
     ],
 
     "home essentials": [
@@ -25,24 +26,23 @@ CATEGORY_RULES = {
         "table", "training table", "round table",
         "bookcase", "library",
         "cabinet", "shelf", "floating shelf",
-        "file cart", "Woody","Glass","Bottle"
-        
-        "wood", "metal", "pine","Microwave",
-        
-        "towel", "tissue","Wine",
-        
-        "storage", "doors","Carpets","Carpet"
+        "file cart", "woody", "glass", "bottle",
+        "wood", "metal", "pine", "microwave",
+        "towel", "tissue", "wine",
+        "storage", "doors", "carpets", "carpet"
     ],
 
     "fashion": [
         "shoes", "sneakers", "boots", "sandals",
         "dress", "shirt", "pants", "jeans",
         "jacket", "coat", "hoodie", "t-shirt",
-        "belt", "scarf", "hat", "gloves" ,"Boys", "Jordan","Sleepwear","Unisex"
+        "belt", "scarf", "hat", "gloves",
+        "boys", "jordan", "sleepwear", "unisex"
     ],
-    "books" : [
-        "by" , ":", "The" ,"Your" ,"A" ,"Edition" ,"of" ,"Analysis", "Articles",
 
+    "books": [
+        "by", "the", "your", "edition", "of",
+        "analysis", "articles"
     ]
 }
 
