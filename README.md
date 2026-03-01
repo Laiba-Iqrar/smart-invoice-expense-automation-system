@@ -162,30 +162,6 @@ Dashboard auto-refreshes and reflects updated data.
 
 ---
 
-## 📁 Project Structure
-smart-invoice-expense-automation-system/
-│
-├── invoices/
-│ ├── incoming/
-│ ├── processed/
-│ └── failed/
-│
-├── output/
-│ └── invoices_db.json
-│
-├── reporting/
-│ ├── dashboard.py
-│ ├── report_service.py
-│ └── init.py
-│
-├── main.py
-├── ocr_extraction.py
-├── pdf_extraction.py
-├── email_service.py
-├── utils.py
-├── requirements.txt
-└── README.md
-
 ## ⚠️ Challenges Faced
 
 During the development of this Smart Invoice & Expense Automation System, several real-world technical challenges were encountered and resolved:
