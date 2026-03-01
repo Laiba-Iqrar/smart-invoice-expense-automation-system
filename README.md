@@ -90,29 +90,6 @@ Implemented inside `utils.py`.
 All invoices are stored in:
 output/invoices_db.json
 
-Example structure:
-
-```json
-{
-  "invoices": [
-    {
-      "invoice_id": "uuid",
-      "invoice_no": "17042",
-      "vendor": "Trudy Brown",
-      "date": "11/23/2012",
-      "total_amount": 1146.48,
-      "items": [
-        {
-          "name": "Epson Receipt Printer",
-          "price": 351.09,
-          "category": "technology"
-        }
-      ],
-      "_hash": "file_hash"
-    }
-  ]
-}```
-
 ## 6️⃣ Automatic Email Notifications
 
 When a new invoice is processed:
