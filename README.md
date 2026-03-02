@@ -71,6 +71,7 @@ Categories include:
 - Technology
 - Fashion
 - Home Essentials
+- Books
 - Uncategorized
 
 Implemented inside `utils.py`.
@@ -92,7 +93,7 @@ output/invoices_db.json
 
 ## Automatic Email Notifications
 
-When a new invoice is processed:
+Sends  batch invoice summary in time intervals (per day or every 15 mins) :
 
 -  Email summary is automatically sent  
 - Contains invoice details and item breakdown  
@@ -147,12 +148,40 @@ Invoice converted to standardized JSON format.
 ### Step 5: Save to Database
 
 Appends invoice to `invoices_db.json`.
+```    {
+      "invoice_id": "2ea02feb-e674-410b-a409-25f6692af48b",
+      "invoice_no": "53695084",
+      "vendor": "Diaz, Warren and Carter Black, Smith and Bass",
+      "date": "10/25/2015",
+      "total_amount": 2012.51,
+      "items": [
+        {
+          "name": "Dell Optiplex Desktop Computer each with Dual 19\" LCD Monitors Windows 10 Pro",
+          "price": 824.73,
+          "category": "technology"
+        },
+        {
+          "name": "HP Windows 10 Pro Desktop each Computer Intel QUAD CORE i5 Wifi, Keyboard & Mouse",
+          "price": 747.78,
+          "category": "technology"
+        },
+        {
+          "name": "3: STUDENT/WORK COMPUTER each WORKSTATION WINDOWS 10 PRO",
+          "price": 440.0,
+          "category": "technology"
+        }
+      ],
+      "_hash": "42e90c539e423f348324bd8c13ef221d"
+    }
+```
 
 ---
 
 ### Step 6: Email Notification
 
-Sends invoice summary email automatically.
+Sends invoice summary email in batch  once in a day (can be changed as per users preference)
+<img width="642" height="559" alt="image" src="https://github.com/user-attachments/assets/cf3e99a3-f3ee-48f0-9dbb-4d9ca031f922" />
+
 
 ---
 
@@ -160,7 +189,9 @@ Sends invoice summary email automatically.
 
 Dashboard auto-refreshes and reflects updated data.
 
-<img width="2816" height="1536" alt="Smart Invoice Automation" src="https://github.com/user-attachments/assets/256cea2c-00c1-4160-9406-0765038b3c7f" />
+<img width="1918" height="729" alt="image" src="https://github.com/user-attachments/assets/9cb7df9a-faff-4f33-8a08-5d77544c1ab3" />
+<img width="1918" height="596" alt="image" src="https://github.com/user-attachments/assets/5cc6095a-3020-4472-8861-99cad738d96c" />
+
 
 
 ---
